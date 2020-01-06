@@ -10,7 +10,7 @@ const burgerIngredient = props => {
       ingredient = <div className={classes.BreadBottom}></div>;
       break;
 
-    case 'bread-Top':
+    case 'bread-top':
       ingredient = (
         <div className={classes.BreadTop}>
           <div className={classes.Seeds1}></div>
@@ -24,7 +24,7 @@ const burgerIngredient = props => {
       break;
 
     case 'cheese':
-      ingredient = <div className={classes.Cheeset}></div>;
+      ingredient = <div className={classes.Cheese}></div>;
       break;
 
     case 'salad':
@@ -36,7 +36,7 @@ const burgerIngredient = props => {
       break;
 
     default:
-      ingredient: null;
+      ingredient = null;
   }
   return ingredient;
 };
