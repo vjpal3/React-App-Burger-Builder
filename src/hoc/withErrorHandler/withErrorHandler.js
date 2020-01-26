@@ -10,19 +10,24 @@ const withErrorHandler = (WrappedComponent, axios) => {
     constructor() {
       super();
       //Clear if any previous errors
-      axios.interceptors.request.use(req => {
+      this.reqInterceptor = axios.interceptors.request.use(req => {
         this.setState({ error: null });
         return req;
       });
 
       //set up new errors, if any
-      axios.interceptors.response.use(
+      this.resInterceptor = axios.interceptors.response.use(
         res => res,
         error => {
           //error obj returned from Firebase has a message property.
           this.setState({ error: error });
         }
       );
+    }
+
+    componentWillUnmount() {
+      axios.interceptors.request.eject(this.reqInterceptor);
+      axios.interceptors.response.eject(this.resInterceptor);
     }
 
     errorConfirmedHandler = () => {
