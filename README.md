@@ -1,4 +1,4 @@
-## A React Single Page App 
+## A React Single Page App (SPA)
 * Implemented routing using React Router for seamless user experience
 * Used Axios HTTP client to access data from Firebase
 * Setup form and form validation
