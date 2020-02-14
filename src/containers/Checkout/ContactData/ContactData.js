@@ -84,6 +84,7 @@ class ContactData extends Component {
           ]
         },
         value: '',
+        validation: {},
         valid: true
       }
     },
@@ -119,6 +120,10 @@ class ContactData extends Component {
   };
 
   checkValidity(value, rules) {
+    //If  validation: {} is added for the dropdown, then following is not required.
+    if (!rules) {
+      return true;
+    }
     if (rules.required && value.trim() === '') return false;
     if (rules.minLength && value.length > rules.minLength) return false;
     if (rules.maxLength && value.length < rules.maxLength) return false;
